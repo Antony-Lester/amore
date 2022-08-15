@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="app.lonelyheartsclub.amore">
+
+    <uses-feature android:name="android.hardware.location.gps" android:required="true" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
+    <!--might not need these-->
+    <uses-permission android:name="md.qsystems.android.tango.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+
+
+
+
+
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/amore"
+        android:resizeableActivity="false"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Amore"
+        android:usesCleartextTraffic="false"
+        tools:targetApi="31">
+        <activity
+            android:name=".ActivitySwipePrefViews"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefRace"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySignupDateOfBirth"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileRace"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileRelationship"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileView"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefRating"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefFood"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefIncome"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefTravel"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefEducation"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefEmployment"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefReligion"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefPolitical"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefPet"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefChildren"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefDrink"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefSmoke"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefDrug"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefIntentions"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefRelationship"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefLanguage"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefBuild"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefHeight"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefAge"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipePrefMenu"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMessageNone"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMessageMain"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipeNoResults"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipeLoading"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySwipeMain"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityReportReason"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityReportSubject"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityReportWarning"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileViews"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileTravel"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileSmoke"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySignupOrientation"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySignupGender"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfilePolitical"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileReligion"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfilePictureBodyApprove"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfilePictureBodyRetake"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfilePictureBodyPose"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfilePhotoQuestion"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfilePet"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileIncome"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileMusic"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileLanguageAdditional"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileLanguageConfirm"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileLanguageSelect"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileLanguageFirst"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileEasy"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileHoliday"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileFood"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileEmployment"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileEducation"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileDrug"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileDrink"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileChildren"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileWeight"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileHeight"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileMenu"
+            android:exported="true" />
+        <activity
+            android:name=".ActivityHomeMenu"
+            android:exported="false"
+            android:foregroundServiceType="location"/>
+        <activity
+            android:name=".ActivityMessageNoMessages"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMessageChecking"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileBiograpy"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfilePictureFaceApprove"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfilePictureFaceRetake"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfilePictureFace"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityProfileHome"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySignupEmail"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySignupName"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySignupPhoneNumberVerify"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityLaunch"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2769530776163036~3713047905" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

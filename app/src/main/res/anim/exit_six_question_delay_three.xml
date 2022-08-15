@@ -1,0 +1,6 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:duration="2855"
+        android:fromXDelta="0"
+        android:toXDelta="-400%" />
+</set>

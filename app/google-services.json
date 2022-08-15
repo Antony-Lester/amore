@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "417081356015",
+    "project_id": "amore-21592",
+    "storage_bucket": "amore-21592.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:417081356015:android:4e79f57b7e6bc7d204f51a",
+        "android_client_info": {
+          "package_name": "app.lonelyheartsclub.amore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "417081356015-2b4menks4044lelp59kadi23a1vfiv1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASEqRDzmUKLjFnPAnBcx7KLSgkyteybgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "417081356015-2b4menks4044lelp59kadi23a1vfiv1v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

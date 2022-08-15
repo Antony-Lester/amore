@@ -1,0 +1,1937 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ActivityProfileMenu">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorOnBackground">
+        <!--HEADLINE-->
+        <RelativeLayout
+            android:id="@+id/headline_container"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/transition_header">
+
+            <TextView
+                android:id="@+id/headline"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:autoSizeTextType="uniform"
+                android:maxLines="1"
+                android:text="@string/profile"
+                android:textAlignment="center"
+                android:textColor="?attr/colorPrimary" />
+        </RelativeLayout>
+        <!--BODY-->
+        <RelativeLayout
+            android:id="@+id/body_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/footer_container"
+            android:layout_below="@+id/headline_container"
+            android:background="@drawable/transition_body">
+            <!--MENU CONTAINER-->
+            <ScrollView
+                android:id="@+id/menu_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:animateLayoutChanges="true"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarSize="24dp"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbarThumbVertical="@drawable/layout_scrollbar_thumb"
+                android:visibility="visible"
+                tools:ignore="UselessParent">
+                <RelativeLayout
+                    android:id="@+id/menu_container_inner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="200dp"
+                    android:visibility="visible">
+                    <!--TOP BUTTONS-->
+                    <RelativeLayout
+                        android:id="@+id/row_0"
+                        android:layout_width="match_parent"
+                        android:layout_height="108dp"
+                        android:visibility="visible">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="108dp"
+                            android:orientation="horizontal"
+                            android:weightSum="12"
+                            tools:ignore="DisableBaselineAlignment">
+                            <!--SIDE FILLER BOX-->
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                tools:ignore="UselessLeaf"/>
+                            <!--Home BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/home_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="108dp"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/home_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/location"
+                                        tools:ignore="TooDeepLayout" />
+
+                                    <ImageView
+                                        android:id="@+id/home_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/location"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_gps_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/home_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/location"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorOnBackground" />
+                            </LinearLayout>
+                            <!--Holiday BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/holiday_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="108dp"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/holiday_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/holiday" />
+
+                                    <ImageView
+                                        android:id="@+id/holiday_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/holiday"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_holiday_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/holiday_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/holiday"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorOnBackground" />
+                            </LinearLayout>
+                            <!--View BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/view_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="108dp"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/view_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/view_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_profile_view_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/view_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/view"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorOnBackground" />
+                            </LinearLayout>
+                            <!--SIDE FILLER BOX-->
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                tools:ignore="UselessLeaf" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <!--photo_to_do-->
+                    <TextView
+                        android:id="@+id/photo_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/row_0"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_photo_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--intentions_to_do-->
+                    <TextView
+                        android:id="@+id/easy_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/photo_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_easy_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--bio_to_do-->
+                    <TextView
+                        android:id="@+id/bio_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/easy_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_bio_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--children_to_do-->
+                    <TextView
+                        android:id="@+id/children_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/bio_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_children_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--travel_to_do-->
+                    <TextView
+                        android:id="@+id/travel_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/children_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_travel_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--height_to_do-->
+                    <TextView
+                        android:id="@+id/height_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/travel_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_height_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--pet_to_do-->
+                    <TextView
+                        android:id="@+id/pet_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/height_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_pet_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--music_to_do-->
+                    <TextView
+                        android:id="@+id/music_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/pet_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_pet_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--food_to_do-->
+                    <TextView
+                        android:id="@+id/food_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/music_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_food_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--political_to_do-->
+                    <TextView
+                        android:id="@+id/political_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/food_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_politics_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--education_to_do-->
+                    <TextView
+                        android:id="@+id/education_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/political_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_education_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--language_to_do-->
+                    <TextView
+                        android:id="@+id/language_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/education_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_language_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--employment_to_do-->
+                    <TextView
+                        android:id="@+id/employment_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/language_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_employment_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--income_to_do-->
+                    <TextView
+                        android:id="@+id/income_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/employment_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_income_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--views_to_do-->
+                    <TextView
+                        android:id="@+id/views_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/income_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_views_to_do"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--drink_to_do-->
+                    <TextView
+                        android:id="@+id/drink_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/views_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/do_you_drink"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--smoke_to_do-->
+                    <TextView
+                        android:id="@+id/smoke_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/drink_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/do_you_smoke"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--views_to_do-->
+                    <TextView
+                        android:id="@+id/drugs_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/smoke_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/take_any_drugs"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--views_to_do-->
+                    <TextView
+                        android:id="@+id/relationship_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/drugs_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_relationship_question"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--views_to_do-->
+                    <TextView
+                        android:id="@+id/race_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/relationship_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_race_question"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--views_to_do-->
+                    <TextView
+                        android:id="@+id/religion_to_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="27dp"
+                        android:layout_below="@+id/race_to_do"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:autoSizeTextType="uniform"
+                        android:background="@drawable/layout_button_to_do_background"
+                        android:padding="10dp"
+                        android:maxLines="3"
+                        android:autoSizeMaxTextSize="24sp"
+                        android:autoSizeMinTextSize="14sp"
+                        android:text="@string/profile_religion_question"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorSecondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="gone" />
+                    <!--MENU BUTTONS-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/religion_to_do"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:id="@+id/row_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="108dp"
+                            android:orientation="horizontal"
+                            android:weightSum="4"
+                            tools:ignore="DisableBaselineAlignment">
+                            <!--PHOTO BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/photo_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="108dp"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/photo_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/photo_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_photo_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/photo_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/photos"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--EASY BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/easy_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="108dp"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/easy_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/easy_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_easy_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/easy_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/intentions"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--RELATIONSHIP BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/relationship_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/relationship_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/relationship_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_relationship_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/relationship_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/relations"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--BIO BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/bio_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="108dp"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/bio_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/bio_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_bio_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/bio_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/biography"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/row_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="108dp"
+                            android:layout_below="@+id/row_1"
+                            android:orientation="horizontal"
+                            android:weightSum="12"
+                            tools:ignore="DisableBaselineAlignment">
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:orientation="vertical"
+                                tools:ignore="UselessLeaf" />
+                            <!--DRINK BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/drink_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="108dp"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/drink_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/drink_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_drink_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/drink_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/drink"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--SMOKE BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/smoke_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="108dp"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/smoke_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/smoke_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_smoke_focused"
+                                        android:textColor="?attr/colorSecondary"
+                                        tools:ignore="TooManyViews" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/smoke_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/smoke"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--DRUGS BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/drugs_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="108dp"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/drugs_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/drugs_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_drug_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/drugs_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/drugs"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:orientation="vertical"
+                                tools:ignore="UselessLeaf" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/row_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="108dp"
+                            android:layout_below="@+id/row_2"
+                            android:orientation="horizontal"
+                            android:weightSum="4"
+                            tools:ignore="DisableBaselineAlignment">
+                            <!--CHILDREN BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/children_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/children_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/children_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_children_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/children_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/children"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--TRAVEL BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/travel_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/travel_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/travel_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_travel_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/travel_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/travel"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--HEIGHT BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/height_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/height_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/height_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_height_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/height_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/height"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--PET BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/pet_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/pet_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/pet_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_pet_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/pet_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/pets"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/row_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="108dp"
+                            android:layout_below="@+id/row_3"
+                            android:orientation="horizontal"
+                            android:weightSum="12"
+                            tools:ignore="DisableBaselineAlignment">
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                tools:ignore="UselessLeaf" />
+                            <!--MUSIC BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/music_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/music_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/music_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_music_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/music_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/music"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--FOOD BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/food_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/food_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/food_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_food_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/food_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/food"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--POLITICAL BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/political_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/political_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/political_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_political_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/political_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/political"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="3"
+                                tools:ignore="UselessLeaf" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/row_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="108dp"
+                            android:layout_below="@+id/row_4"
+                            android:orientation="horizontal"
+                            android:weightSum="4"
+                            tools:ignore="DisableBaselineAlignment">
+                            <!--EDUCATION BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/education_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/education_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/education_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_education_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/education_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/education"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--LANGUAGE BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/language_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/language_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/language_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_language_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/language_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/language"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--EMPLOYMENT BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/employment_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/employment_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/employment_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_employment_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/employment_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/work"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--INCOME BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/income_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/income_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/income_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/view"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_income_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/income_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/income"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/row_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="108dp"
+                            android:layout_below="@+id/row_5"
+                            android:weightSum="12"
+                            android:orientation="horizontal"
+                            tools:ignore="DisableBaselineAlignment">
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                tools:ignore="UselessLeaf" />
+                            <!--Race BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/race_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="108dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:layout_weight="2"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/race_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/race" />
+
+                                    <ImageView
+                                        android:id="@+id/race_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/race"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_race_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/race_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/race"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <!--VIEWS BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/views_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="108dp"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/views_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/view" />
+
+                                    <ImageView
+                                        android:id="@+id/views_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/views"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_views_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/views_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/views"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+
+                            <!--religion BUTTON-->
+                            <LinearLayout
+                                android:id="@+id/religion_button"
+                                android:layout_width="wrap_content"
+                                android:layout_height="108dp"
+                                android:layout_weight="2"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                android:weightSum="4">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="81dp">
+
+                                    <ImageView
+                                        android:id="@+id/religion_button_background"
+                                        android:layout_width="64dp"
+                                        android:layout_height="64dp"
+                                        android:layout_centerInParent="true"
+                                        android:background="@drawable/layout_menu_button_background"
+                                        android:contentDescription="@string/religion" />
+
+                                    <ImageView
+                                        android:id="@+id/religion_button_icon"
+                                        android:layout_width="36dp"
+                                        android:layout_height="36dp"
+                                        android:layout_centerInParent="true"
+                                        android:contentDescription="@string/religion"
+                                        android:gravity="center"
+                                        android:src="@drawable/icon_religion_focused"
+                                        android:textColor="?attr/colorSecondary" />
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:id="@+id/religion_button_text"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="27dp"
+                                    android:autoSizeTextType="uniform"
+                                    android:maxLines="1"
+                                    android:text="@string/religion"
+                                    android:textAlignment="center"
+                                    android:textColor="?attr/colorSecondary" />
+                            </LinearLayout>
+                            <RelativeLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                tools:ignore="UselessLeaf" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </ScrollView>
+
+        </RelativeLayout>
+
+        <!--FOOTER-->
+        <LinearLayout
+            android:id="@+id/footer_container"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:background="@drawable/transition_footer"
+            android:weightSum="16"
+            tools:ignore="DisableBaselineAlignment">
+            <RelativeLayout
+                android:id="@+id/home_icon_container"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ProgressBar
+                    android:id="@+id/home_progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/layout_progress_circle_background"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/layout_progress_circle_foreground"
+                    android:textAlignment="center" />
+                <ImageView
+                    android:id="@+id/home_icon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_centerInParent="true"
+                    android:textColor="?attr/colorPrimary"
+                    android:gravity="center"
+                    android:contentDescription="@string/home"
+                    android:src="@drawable/icon_home"/>
+                <RelativeLayout
+                    android:id="@+id/home_widget_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    tools:ignore="RelativeOverlap">
+                    <ImageView
+                        android:id="@+id/home_widget"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/home"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/layout_widget" />
+                    <TextView
+                        android:id="@+id/home_widget_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textStyle="bold"/>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/home_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/home_progress_bar"
+                    android:text="@string/home"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorPrimary"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/profile_icon_container"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true">
+                <ProgressBar
+                    android:id="@+id/profile_progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/layout_progress_circle_background_focused"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/layout_progress_circle_foreground_focused"
+                    android:textAlignment="center" />
+                <ImageView
+                    android:id="@+id/profile_icon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_centerInParent="true"
+                    android:textColor="?attr/colorSecondary"
+                    android:gravity="center"
+                    android:contentDescription="@string/profile"
+                    android:src="@drawable/icon_profile_focused"/>
+                <RelativeLayout
+                    android:id="@+id/profile_widget_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    tools:ignore="RelativeOverlap">
+                    <ImageView
+                        android:id="@+id/profile_widget"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/profile"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/layout_widget_focused" />
+
+                    <TextView
+                        android:id="@+id/profile_widget_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textStyle="bold"/>
+                    </RelativeLayout>
+                <TextView
+                    android:id="@+id/profile_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_below="@id/profile_progress_bar"
+                    android:text="@string/profile"
+                    android:textColor="?attr/colorSecondary"
+                    android:textStyle="bold"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/swipe_icon_container"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true">
+                <ProgressBar
+                    android:id="@+id/swipe_progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/layout_progress_circle_background"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/layout_progress_circle_foreground"
+                    android:textAlignment="center" />
+                <ImageView
+                    android:id="@+id/swipe_icon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:contentDescription="@string/swipe"
+                    android:src="@drawable/icon_swipe"/>
+                <RelativeLayout
+                    android:id="@+id/swipe_widget_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    tools:ignore="RelativeOverlap">
+                    <ImageView
+                        android:id="@+id/swipe_widget"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/swipe"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/layout_widget" />
+                    <TextView
+                        android:id="@+id/swipe_widget_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textStyle="bold"/>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/swipe_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_below="@+id/swipe_progress_bar"
+                    android:text="@string/swipe"
+                    android:textColor="?attr/colorPrimary"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/message_icon_container"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true">
+                <ProgressBar
+                    android:id="@+id/message_progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/layout_progress_circle_background"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/layout_progress_circle_foreground"
+                    android:textAlignment="center" />
+                <ImageView
+                    android:id="@+id/message_icon"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:contentDescription="@string/message"
+                    android:src="@drawable/icon_message"/>
+                <RelativeLayout
+                    android:id="@+id/message_widget_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    tools:ignore="RelativeOverlap">
+                    <ImageView
+                        android:id="@+id/message_widget"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/message"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/layout_widget" />
+                    <TextView
+                        android:id="@+id/message_widget_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnBackground"
+                        android:textStyle="bold"/>
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/message_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_below="@+id/message_progress_bar"
+                    android:text="@string/message"
+                    android:textColor="?attr/colorPrimary"
+                    android:autoSizeTextType="uniform"
+                    android:maxLines="1" />
+            </RelativeLayout>
+        </LinearLayout >
+    </RelativeLayout>
+</layout>

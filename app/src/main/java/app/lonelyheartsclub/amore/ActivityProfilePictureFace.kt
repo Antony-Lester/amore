@@ -23,6 +23,8 @@ import app.lonelyheartsclub.amore.databinding.ActivityProfilePhotoQuestionBindin
 import app.lonelyheartsclub.amore.databinding.ActivityProfilePictureFaceBinding
 import app.lonelyheartsclub.amore.databinding.ActivitySwipePrefReligionBinding.inflate
 import app.lonelyheartsclub.amore.databinding.ActivitySwipePrefSmokeBinding.inflate
+import com.google.android.datatransport.BuildConfig.APPLICATION_ID
+import com.google.android.datatransport.runtime.BuildConfig.APPLICATION_ID
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
@@ -115,8 +117,16 @@ class ActivityProfilePictureFace : AppCompatActivity() {
             } catch (e : IOException) {e.printStackTrace()}
         }
         fun isCameraPermissionGranted(): Boolean {
-            return if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), permission)
+            return if (ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.CAMERA
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.CAMERA),
+                    permission
+                )
                 false
             } else {
                 true
@@ -125,14 +135,20 @@ class ActivityProfilePictureFace : AppCompatActivity() {
         fun openFaceCamera() {
             Helper.file = File.createTempFile("photo", ".webp", filesDir)
             Helper.filepath = Helper.file !!.path
-            Helper.fileuri = FileProvider.getUriForFile(Objects.requireNonNull(applicationContext), BuildConfig.LIBRARY_PACKAGE_NAME + ".provider", Helper.file !!)
+            Log.d("MAIN", "Helper.file:${Helper.file}")
+            Log.d("MAIN", "Helper.filepath:${Helper.filepath}")
+            Log.d("MAIN", "Build config:" + BuildConfig.LIBRARY_PACKAGE_NAME + ".FileProvider")
+            //Helper.fileuri = FileProvider.getUriForFile(Objects.requireNonNull(applicationContext), BuildConfig.LIBRARY_PACKAGE_NAME + ".provider", Helper.file !!)
+            Helper.fileuri = FileProvider.getUriForFile(Objects.requireNonNull(applicationContext), "app.lonelyheartsclub.amore.android.fileprovider", Helper.file !!)//androidx.core.content.FileProvider //was .provider////".FileProvider"
+            Log.d("MAIN", "Helper.fileuri:${Helper.fileuri}")
             getFaceImage.launch(Helper.fileuri)}
         if (isCameraPermissionGranted()) {openFaceCamera()} else {Log.d("Main", "isCameraPermissionGranted() = False")}
     }
 }
 
 
-
+///data/data/app.lonelyheartsclub.amore/files/photo2425591919965007187.webp
+///data/user/0/app.lonelyheartsclub.amore/files/photo2425591919965007187.webp
 
 
 

@@ -53,4 +53,6 @@ object Info {
     var countryName : String? = null
     var locationGroup : String? = null
 
+    var gps : String? = null //added to get app running
+    var sexCompatible :MutableList<String?>? = mutableListOf() //added to get app running
 }

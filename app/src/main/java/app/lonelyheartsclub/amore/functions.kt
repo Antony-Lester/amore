@@ -1134,7 +1134,7 @@ object Fun {
         //2 years per group.
 
     }
-    fun calculateLatLongGroup() : String{
+    fun calculateLatLongGroup() {
         //var lat : Double? = null//Double (53.3276953)
         //var long : Double? = null//Double (-2.6933446)
         return
@@ -3250,7 +3250,8 @@ object Fun {
         var percentageString = ((percentage * 10000.0f).roundToInt().toFloat() / 10000.0f).toString()
         val check = percentageString.contains("E")
         if (check) {percentageString = "0.001"}
-        progressText.text = "~${numberOfUsers}~${percentageString}%~"}
+        progressText.text = "~" + numberOfUsers + "~" + percentageString + "%~"
+    }
     fun setFocusProfileMenu(context: Context, photoBack : ImageView, photoIcon : ImageView, photoText : TextView, easyBack : ImageView, easyIcon : ImageView, easyText : TextView, bioBack : ImageView, bioIcon : ImageView, bioText : TextView, childrenBack : ImageView, childrenIcon : ImageView, childrenText : TextView, travelBack : ImageView, travelIcon : ImageView, travelText : TextView, heightBack : ImageView, heightIcon : ImageView, heightText : TextView, petBack : ImageView, petIcon : ImageView, petText : TextView, musicBack : ImageView, musicIcon : ImageView, musicText : TextView, foodBack : ImageView, foodIcon : ImageView, foodText : TextView, politicalBack : ImageView, politicalIcon : ImageView, politicalText : TextView, educationBack : ImageView, educationIcon : ImageView, educationText : TextView, languageBack : ImageView, languageIcon : ImageView, languageText : TextView, employmentBack : ImageView, employmentIcon : ImageView, employmentText : TextView, incomeBack : ImageView, incomeIcon : ImageView, incomeText : TextView, viewsBack : ImageView, viewsIcon : ImageView, viewsText : TextView, drinkBack : ImageView, drinkIcon : ImageView, drinkText : TextView, smokeBack : ImageView, smokeIcon : ImageView, smokeText : TextView, drugsBack : ImageView, drugsIcon : ImageView, drugsText : TextView, raceBack : ImageView, raceIcon : ImageView, raceText : TextView, religionBack : ImageView, religionIcon : ImageView, religionText : TextView, relationshipBack : ImageView, relationshipIcon : ImageView, relationshipText : TextView, photoToDo : TextView, easyToDo : TextView, bioToDo : TextView, childrenToDo : TextView, travelToDo : TextView, heightToDo : TextView, petToDo : TextView, musicToDo : TextView, foodToDo : TextView, politicalToDo : TextView, educationToDo : TextView, languageToDo : TextView, employmentToDo : TextView, incomeToDo : TextView, viewsToDo : TextView, drinkToDo : TextView, drugsToDo : TextView, smokeToDo : TextView, raceToDo : TextView, religionToDo : TextView,){
         //get focus colour
         val colorGetter = TypedValue();context.theme.resolveAttribute(com.google.android.material.R.attr.colorOnBackground, colorGetter, true);val colorFocused = colorGetter.data
@@ -3971,7 +3972,7 @@ object Fun {
         }
         val numberOfUsers : Int = ((Stat.users.toString().toFloat()/100.000F)*percentage).toInt()
         percentage = (percentage * 10000.0f).roundToInt().toFloat() / 10000.0f
-        stats.text = "~${numberOfUsers}~ ~${percentage}%~"
+        stats.text = "~" + numberOfUsers + "~ ~" + percentage + "%~"
 
     }
     //=============== SAVES =============================

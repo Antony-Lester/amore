@@ -3,9 +3,10 @@ package app.lonelyheartsclub.amore
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.res.ResourcesCompat
 import app.lonelyheartsclub.amore.databinding.ActivityLaunchBinding
-import app.lonelyheartsclub.amore.databinding.ActivityProfileHomeBinding
 import app.lonelyheartsclub.amore.databinding.ActivityProfilePictureFaceRetakeBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -21,12 +22,13 @@ class ActivityProfilePictureFaceRetake : AppCompatActivity() {
         binding.title.typeface = Fun.setFont(this, "headline")
         binding.bodyText.typeface = Fun.setFont(this, "headline")
         binding.tips.typeface = Fun.setFont(this, "headline")
+        Log.d("Main","Helper.retake:${Helper.retake}")
         when (Helper.retake) {
-            "M" -> {binding.bodyText.text = resources.getString(R.string.more_then_one_face);binding.tips.text = resources.getString(R.string.more_then_one_face_tip);binding.loadingIcon.setImageDrawable(resources.getDrawable(R.drawable.icon_two_faces))}
-            "N" -> {binding.bodyText.text = resources.getString(R.string.no_faces_detected);binding.tips.text = resources.getString(R.string.no_faces_detected_tip);binding.loadingIcon.setImageDrawable(resources.getDrawable(R.drawable.icon_no_face))}
-            "SE" -> {binding.bodyText.text = resources.getString(R.string.not_smiling_and_eyes_closed);binding.tips.text = resources.getString(R.string.not_smiling_and_eyes_closed_tip);binding.loadingIcon.setImageDrawable(resources.getDrawable(R.drawable.icon_eye))}
-            "S" -> {binding.bodyText.text = resources.getString(R.string.not_smiling);binding.tips.text = resources.getString(R.string.not_smiling_tip);binding.loadingIcon.setImageDrawable(resources.getDrawable(R.drawable.icon_smile))}
-            else -> {binding.bodyText.text = resources.getString(R.string.eyes_closed);binding.tips.text = resources.getString(R.string.eyes_closed_tip);binding.loadingIcon.setImageDrawable(resources.getDrawable(R.drawable.icon_eye))}
+            "M" -> {binding.bodyText.text = resources.getString(R.string.more_then_one_face);binding.tips.text = resources.getString(R.string.more_then_one_face_tip);binding.loadingIcon.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.icon_two_faces, null))}
+            "N" -> {binding.bodyText.text = resources.getString(R.string.no_faces_detected);binding.tips.text = resources.getString(R.string.no_faces_detected_tip);binding.loadingIcon.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.icon_no_face, null))}
+            "SE" -> {binding.bodyText.text = resources.getString(R.string.not_smiling_and_eyes_closed);binding.tips.text = resources.getString(R.string.not_smiling_and_eyes_closed_tip);binding.loadingIcon.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.icon_eye, null))}
+            "S" -> {binding.bodyText.text = resources.getString(R.string.not_smiling);binding.tips.text = resources.getString(R.string.not_smiling_tip); binding.loadingIcon.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.icon_smile, null))}
+            else -> {binding.bodyText.text = resources.getString(R.string.eyes_closed);binding.tips.text = resources.getString(R.string.eyes_closed_tip);binding.loadingIcon.setImageDrawable(ResourcesCompat.getDrawable(resources, R.drawable.icon_eye, null))}
         }}
 
     override fun onStart() {

@@ -33,13 +33,13 @@ class ActivityProfileHome : AppCompatActivity() {
         val address = Geocoder(this@ActivityProfileHome , Locale.getDefault()).getFromLocation(Info.lat!!, Info.long!!, 1)
         //TODO CATCH grpc failed FROM ABOVE LINE SUGGESTED  await internet.CheckConnection()
         return when {
-            address[0].countryName != null && address[0].locality != null -> { address[0].locality!! + ", " + address[0].countryName!! }
-            address[0].countryName != null && address[0].subAdminArea != null -> { address[0].subAdminArea!! + ", " + address[0].countryName!! }
-            address[0].countryName != null && address[0].adminArea != null -> { address[0].adminArea!! + ", " + address[0].countryName!! }
-            address[0].countryName != null -> { address[0].countryName!! }
-            address[0].locality != null -> { address[0].locality!! }
-            address[0].subAdminArea != null -> { address[0].subAdminArea!! }
-            address[0].adminArea != null -> { address[0].adminArea!! }
+            address?.get(0)?.countryName != null && address?.get(0)?.locality != null -> { address[0].locality!! + ", " + address[0].countryName!! }
+            address?.get(0)?.countryName  != null && address?.get(0)?.subAdminArea != null -> { address[0].subAdminArea!! + ", " + address[0].countryName!! }
+            address?.get(0)?.countryName != null && address?.get(0)?.adminArea != null -> { address[0].adminArea!! + ", " + address[0].countryName!! }
+            address?.get(0)?.countryName != null -> { address[0].countryName!! }
+            address?.get(0)?.locality != null -> { address[0].locality!! }
+            address?.get(0)?.subAdminArea != null -> { address[0].subAdminArea!! }
+            address?.get(0)?.adminArea != null -> { address[0].adminArea!! }
             else -> {
                 "TrES-2b"
             }
@@ -162,6 +162,23 @@ class ActivityProfileHome : AppCompatActivity() {
     fun startLocationUpdates() {
         Log.d(TAG,"startLocationUpdates()")
         //Now that you initialized everything, you need to let the FusedLocationProviderClient know that you want to receive updates. So Subscribe to location changes.
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return
+        }
         fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper())}
 
     fun stopLocationUpdates() {

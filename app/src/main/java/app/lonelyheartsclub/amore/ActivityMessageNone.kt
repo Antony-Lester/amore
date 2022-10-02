@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import app.lonelyheartsclub.amore.databinding.ActivityLaunchBinding
 import app.lonelyheartsclub.amore.databinding.ActivityMessageNoneBinding
-import app.lonelyheartsclub.amore.databinding.ActivityProfileHomeBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

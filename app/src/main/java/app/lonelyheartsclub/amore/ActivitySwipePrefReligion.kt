@@ -656,7 +656,7 @@ class ActivitySwipePrefReligion : AppCompatActivity() {
         //on button click
         fun statCheck(){
             Pref.religion = null
-                if (binding.answerAllSwitch.isChecked){Pref.religion = mutableListOf("a","b","c","d","e","f")}
+            if (binding.answerAllSwitch.isChecked){Pref.religion = mutableListOf("a","b","c","d","e","f")}
             if (binding.answerOneSwitch.isChecked){if (Pref.religion != null ){Pref.religion?.add("a")} else {Pref.religion = mutableListOf("a")}}
             if (binding.answerTwoSwitch.isChecked){if (Pref.religion != null ){Pref.religion?.add("b")} else {Pref.religion = mutableListOf("b")}}
             if (binding.answerThreeSwitch.isChecked){if (Pref.religion != null ){Pref.religion?.add("c")} else {Pref.religion = mutableListOf("c")}}

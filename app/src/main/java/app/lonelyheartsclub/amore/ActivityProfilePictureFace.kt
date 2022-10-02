@@ -8,30 +8,18 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Matrix
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
-import androidx.databinding.ktx.BuildConfig
-import app.lonelyheartsclub.amore.databinding.ActivityLaunchBinding
-import app.lonelyheartsclub.amore.databinding.ActivityProfileHomeBinding
-import app.lonelyheartsclub.amore.databinding.ActivityProfilePhotoQuestionBinding
 import app.lonelyheartsclub.amore.databinding.ActivityProfilePictureFaceBinding
-import app.lonelyheartsclub.amore.databinding.ActivitySwipePrefReligionBinding.inflate
-import app.lonelyheartsclub.amore.databinding.ActivitySwipePrefSmokeBinding.inflate
-import com.google.android.datatransport.BuildConfig.APPLICATION_ID
-import com.google.android.datatransport.runtime.BuildConfig.APPLICATION_ID
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.face.FaceDetection
 import com.google.mlkit.vision.face.FaceDetectorOptions
 import com.google.mlkit.vision.segmentation.Segmentation
 import com.google.mlkit.vision.segmentation.selfie.SelfieSegmenterOptions
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.io.File
 import java.io.IOException
 import java.nio.IntBuffer
@@ -57,7 +45,7 @@ class ActivityProfilePictureFace : AppCompatActivity() {
                 detector.process(image).addOnSuccessListener { faces ->
                     Helper.retake = null
                     if (faces.count() > 1) {
-                        Helper.retake = "M";
+                        Helper.retake = "M"
                         Fun.finishAnimationLoading(this@ActivityProfilePictureFace,binding.headlineContainer,binding.bodyContainer,binding.footerContainer,binding.loadingBar,binding.loadingContainer, binding.title,binding.bodyText , binding.loadingBar, binding.loadingIcon, binding.tips)
                         binding.headlineContainer.postDelayed({startActivity(Intent(this@ActivityProfilePictureFace, ActivityProfilePictureFaceRetake::class.java));finish()}, 1600)}
                     else if (faces == null) {
@@ -135,32 +123,9 @@ class ActivityProfilePictureFace : AppCompatActivity() {
         fun openFaceCamera() {
             Helper.file = File.createTempFile("photo", ".webp", filesDir)
             Helper.filepath = Helper.file !!.path
-            Log.d("MAIN", "Helper.file:${Helper.file}")
-            Log.d("MAIN", "Helper.filepath:${Helper.filepath}")
-            Log.d("MAIN", "Build config:" + BuildConfig.LIBRARY_PACKAGE_NAME + ".FileProvider")
-            //Helper.fileuri = FileProvider.getUriForFile(Objects.requireNonNull(applicationContext), BuildConfig.LIBRARY_PACKAGE_NAME + ".provider", Helper.file !!)
             Helper.fileuri = FileProvider.getUriForFile(Objects.requireNonNull(applicationContext), "app.lonelyheartsclub.amore.android.fileprovider", Helper.file !!)//androidx.core.content.FileProvider //was .provider////".FileProvider"
-            Log.d("MAIN", "Helper.fileuri:${Helper.fileuri}")
+            Log.d("MAIN", "Helper.file uri:${Helper.fileuri}")
             getFaceImage.launch(Helper.fileuri)}
         if (isCameraPermissionGranted()) {openFaceCamera()} else {Log.d("Main", "isCameraPermissionGranted() = False")}
     }
 }
-
-
-///data/data/app.lonelyheartsclub.amore/files/photo2425591919965007187.webp
-///data/user/0/app.lonelyheartsclub.amore/files/photo2425591919965007187.webp
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

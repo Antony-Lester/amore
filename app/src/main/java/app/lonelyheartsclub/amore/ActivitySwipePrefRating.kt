@@ -26,7 +26,7 @@ class ActivitySwipePrefRating : AppCompatActivity() {
         binding.percentage.text = Fun.calculateSwipePreferencePercentageTotal()
         Fun.calculateSwipePreferencePercentageItem("reputationScore", binding.progressBar)
         //init seekbar
-        if (Pref.reputationScore == null) {binding.seekBar.progress = 50} else {binding.seekBar.progress = if (Pref.reputationScore == 0) {0} else {(Pref.reputationScore /100)}}
+        binding.seekBar.progress = if (Pref.reputationScore == 0) {0} else {(Pref.reputationScore /100)}
         binding.imperialValue.text = if (binding.seekBar.progress != 0) {(binding.seekBar.progress.toFloat()/10.0f).toString()} else {"0.0"}
         binding.metricValue.text = if (binding.seekBar.progress != 0) {
             when (binding.seekBar.progress) {

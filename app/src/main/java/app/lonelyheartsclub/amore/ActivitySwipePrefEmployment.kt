@@ -656,7 +656,7 @@ class ActivitySwipePrefEmployment : AppCompatActivity() {
         //on button click
         fun statCheck(){
             Pref.employment = null
-                if (binding.answerAllSwitch.isChecked){Pref.employment = mutableListOf("a","b","c","d","e","f")}
+            if (binding.answerAllSwitch.isChecked){Pref.employment = mutableListOf("a","b","c","d","e","f")}
             if (binding.answerOneSwitch.isChecked){if (Pref.employment != null ){Pref.employment?.add("a")} else {Pref.employment = mutableListOf("a")}}
             if (binding.answerTwoSwitch.isChecked){if (Pref.employment != null ){Pref.employment?.add("b")} else {Pref.employment = mutableListOf("b")}}
             if (binding.answerThreeSwitch.isChecked){if (Pref.employment != null ){Pref.employment?.add("c")} else {Pref.employment = mutableListOf("c")}}

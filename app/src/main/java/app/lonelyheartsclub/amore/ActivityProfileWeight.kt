@@ -23,8 +23,8 @@ class ActivityProfileWeight : AppCompatActivity() {
         binding.seekBar.progress = 50
         var stone = floor((binding.seekBar.progress + 40).toFloat()*0.15747).toInt()
         var pounds = ((((binding.seekBar.progress + 40).toFloat()*0.15747) - floor((binding.seekBar.progress + 40).toFloat()*0.15747))*14).toInt()
-        binding.metricValue.text = (binding.seekBar.progress + 40).toString()
-        binding.imperialValue.text = "$stone'$pounds\""
+        (binding.seekBar.progress + 40).toString().also { binding.metricValue.text = it }
+        "$stone'$pounds\"".also { binding.imperialValue.text = it }
         //init animation
         Fun.startAnimationQuestionSlider(this, binding.profileIconContainer, binding.button, binding.valuesContainer, binding.seekBarContainer, binding.question, binding.headlineContainer, binding.bodyContainer, binding.footerContainer, binding.user, binding.percentage)
         Fun.setWidgetAndProgress(Helper.profileWidget, Helper.profileProgress, binding.profileWidget, binding.profileWidgetText, binding.profileProgressBar)
@@ -32,8 +32,9 @@ class ActivityProfileWeight : AppCompatActivity() {
             override fun onProgressChanged(p0 : SeekBar?, p1 : Int, p2 : Boolean) {
                 stone = floor((binding.seekBar.progress + 40).toFloat()*0.15747).toInt()
                 pounds = ((((binding.seekBar.progress + 40).toFloat()*0.15747) - floor((binding.seekBar.progress + 40).toFloat()*0.15747))*14).toInt()
-                binding.metricValue.text = (binding.seekBar.progress + 40).toString()
-                binding.imperialValue.text = "$stone'$pounds\""}
+                (binding.seekBar.progress + 40).toString().also { binding.metricValue.text = it }
+                "$stone'$pounds\"".also { binding.imperialValue.text = it }
+            }
             override fun onStartTrackingTouch(p0 : SeekBar?) {}
             override fun onStopTrackingTouch(p0 : SeekBar?) {}})
         binding.buttonText.setOnClickListener {

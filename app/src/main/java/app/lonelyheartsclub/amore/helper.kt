@@ -266,7 +266,6 @@ object Helper {
     var retake : String? = null // M = more then one face. N = no faces detected. SE = Not smiling and eyes closed, S = not smiling, e = Eyes Closed. 0k = file ok
     //report section
     var reportedUid : String? = null
-    var reporterUid : String? = null
     var reportSubject : String? = null // "text" or "image"
     var reportReason : String? = null // fake/spam =a, is selling something =b, contact information =c, hate speech =d, sexual content =e, other problem =f
     //swipePref

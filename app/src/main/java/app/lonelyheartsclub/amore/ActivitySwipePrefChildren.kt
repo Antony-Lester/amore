@@ -655,7 +655,7 @@ class ActivitySwipePrefChildren : AppCompatActivity() {
         //on button click
         fun statCheck(){
             Pref.children = null
-                if (binding.answerAllSwitch.isChecked){Pref.children = mutableListOf("a","b","c","d","e","f")}
+            if (binding.answerAllSwitch.isChecked){Pref.children = mutableListOf("a","b","c","d","e","f")}
             if (binding.answerOneSwitch.isChecked){if (Pref.children != null ){Pref.children?.add("a")} else {Pref.children = mutableListOf("a")}}
             if (binding.answerTwoSwitch.isChecked){if (Pref.children != null ){Pref.children?.add("b")} else {Pref.children = mutableListOf("b")}}
             if (binding.answerThreeSwitch.isChecked){if (Pref.children != null ){Pref.children?.add("c")} else {Pref.children = mutableListOf("c")}}

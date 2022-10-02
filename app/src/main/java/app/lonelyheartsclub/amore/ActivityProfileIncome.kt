@@ -1,5 +1,6 @@
 package app.lonelyheartsclub.amore
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -9,6 +10,7 @@ import app.lonelyheartsclub.amore.databinding.ActivityProfileIncomeBinding
 import java.util.*
 
 class ActivityProfileIncome : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;supportActionBar?.hide()
@@ -39,12 +41,12 @@ class ActivityProfileIncome : AppCompatActivity() {
             name = "US Dollar"
             code = "USD"
             symbol = "$"
-            step = 515.1204511f
+            step = 515.1204f
             value = 1.0f}
         //init seekbar
         binding.seekBar.progress = 50
-        binding.metricTitle.text = "$name $code"
-        binding.metricValue.text = symbol + ((binding.seekBar.progress.toFloat())*(step)).toInt().toString()
+        ("$name $code").also { binding.metricTitle.text = it }
+        (symbol + ((binding.seekBar.progress.toFloat())*(step)).toInt().toString()).also { binding.metricValue.text = it }
         binding.imperialTitle.text = "US Dollar USD"
         binding.imperialValue.text = symbol + ((binding.seekBar.progress * step)*value).toInt().toString()
         //init animation

@@ -656,7 +656,7 @@ class ActivitySwipePrefPet : AppCompatActivity() {
         //on button click
         fun statCheck(){
             Pref.pet = null
-                if (binding.answerAllSwitch.isChecked){Pref.pet = mutableListOf("a","b","c","d","e","f")}
+            if (binding.answerAllSwitch.isChecked){Pref.pet = mutableListOf("a","b","c","d","e","f")}
             if (binding.answerOneSwitch.isChecked){if (Pref.pet != null ){Pref.pet?.add("a")} else {Pref.pet = mutableListOf("a")}}
             if (binding.answerTwoSwitch.isChecked){if (Pref.pet != null ){Pref.pet?.add("b")} else {Pref.pet = mutableListOf("b")}}
             if (binding.answerThreeSwitch.isChecked){if (Pref.pet != null ){Pref.pet?.add("c")} else {Pref.pet = mutableListOf("c")}}

@@ -656,7 +656,7 @@ class ActivitySwipePrefPolitical : AppCompatActivity() {
         //on button click
         fun statCheck(){
             Pref.political = null
-                if (binding.answerAllSwitch.isChecked){Pref.political = mutableListOf("a","b","c","d","e","f")}
+            if (binding.answerAllSwitch.isChecked){Pref.political = mutableListOf("a","b","c","d","e","f")}
             if (binding.answerOneSwitch.isChecked){if (Pref.political != null ){Pref.political?.add("a")} else {Pref.political = mutableListOf("a")}}
             if (binding.answerTwoSwitch.isChecked){if (Pref.political != null ){Pref.political?.add("b")} else {Pref.political = mutableListOf("b")}}
             if (binding.answerThreeSwitch.isChecked){if (Pref.political != null ){Pref.political?.add("c")} else {Pref.political = mutableListOf("c")}}

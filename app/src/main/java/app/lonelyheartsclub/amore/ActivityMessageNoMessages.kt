@@ -5,7 +5,6 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import app.lonelyheartsclub.amore.databinding.ActivityLaunchBinding
-import app.lonelyheartsclub.amore.databinding.ActivityMessageCheckingBinding
 import app.lonelyheartsclub.amore.databinding.ActivityMessageNoMessagesBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

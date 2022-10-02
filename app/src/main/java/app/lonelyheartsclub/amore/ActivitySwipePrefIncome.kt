@@ -38,16 +38,16 @@ class ActivitySwipePrefIncome : AppCompatActivity() {
             symbol = list[2].toString()
             step = list[3].toString().toFloat()
             value = list[4].toString().toFloat()
-        } else { name = "US Dollar";code = "USD";symbol = "$";step = 515.1204511f;value = 1.0f}
+        } else { name = "US Dollar";code = "USD";symbol = "$";step = 515.1204f;value = 1.0f}
         if (Info.income == null) {binding.question.text = resources.getString(R.string.profile_income) }
         //init seekbar
-        binding.seekBar.progress = 50;binding.metricTitle.text = "$name $code";binding.metricValue.text = symbol + ((binding.seekBar.progress.toFloat())*(step)).toInt().toString();binding.imperialTitle.text = "US Dollar USD";binding.imperialValue.text = symbol + ((binding.seekBar.progress * step)*value).toInt().toString()
+        binding.seekBar.progress = 50;"$name $code".also { binding.metricTitle.text = it };(symbol + ((binding.seekBar.progress.toFloat())*(step)).toInt().toString()).also { binding.metricValue.text = it };"US Dollar USD".also { binding.imperialTitle.text = it };(symbol + ((binding.seekBar.progress * step)*value).toInt().toString()).also { binding.imperialValue.text = it }
         //init animation
         Fun.startAnimationQuestionSlider(this, binding.swipeIconContainer, binding.button, binding.valuesContainer, binding.seekBarContainer, binding.question, binding.headlineContainer, binding.bodyContainer, binding.footerContainer, binding.user, binding.percentage)
         binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0 : SeekBar?, p1 : Int, p2 : Boolean) {
-                binding.metricValue.text = symbol + ((binding.seekBar.progress.toFloat())*(step)).toInt().toString()
-                binding.imperialValue.text = symbol +((binding.seekBar.progress * step)*value).toInt().toString()
+                (symbol + ((binding.seekBar.progress.toFloat())*(step)).toInt().toString()).also { binding.metricValue.text = it }
+                (symbol +((binding.seekBar.progress * step)*value).toInt().toString()).also { binding.imperialValue.text = it }
                 if (Info.income != null) {
                     Pref.income = mutableListOf()
                     //set Pref Income

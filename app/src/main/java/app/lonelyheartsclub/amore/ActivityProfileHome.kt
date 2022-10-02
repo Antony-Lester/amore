@@ -13,12 +13,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import app.lonelyheartsclub.amore.databinding.ActivityProfileHomeBinding
 import com.google.android.gms.location.*
+import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import java.util.*
 import java.util.concurrent.TimeUnit
 
 
 class ActivityProfileHome : AppCompatActivity() {
-    val TAG = "Main"
+    val tag = "Main"
     private val permission = 101
     // FusedLocationProviderClient - Main class for receiving location updates.
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
@@ -33,9 +34,9 @@ class ActivityProfileHome : AppCompatActivity() {
         val address = Geocoder(this@ActivityProfileHome , Locale.getDefault()).getFromLocation(Info.lat!!, Info.long!!, 1)
         //TODO CATCH grpc failed FROM ABOVE LINE SUGGESTED  await internet.CheckConnection()
         return when {
-            address?.get(0)?.countryName != null && address?.get(0)?.locality != null -> { address[0].locality!! + ", " + address[0].countryName!! }
-            address?.get(0)?.countryName  != null && address?.get(0)?.subAdminArea != null -> { address[0].subAdminArea!! + ", " + address[0].countryName!! }
-            address?.get(0)?.countryName != null && address?.get(0)?.adminArea != null -> { address[0].adminArea!! + ", " + address[0].countryName!! }
+            address?.get(0)?.countryName != null && address[0]?.locality != null -> { address[0].locality!! + ", " + address[0].countryName!! }
+            address?.get(0)?.countryName  != null && address[0]?.subAdminArea != null -> { address[0].subAdminArea!! + ", " + address[0].countryName!! }
+            address?.get(0)?.countryName != null && address[0]?.adminArea != null -> { address[0].adminArea!! + ", " + address[0].countryName!! }
             address?.get(0)?.countryName != null -> { address[0].countryName!! }
             address?.get(0)?.locality != null -> { address[0].locality!! }
             address?.get(0)?.subAdminArea != null -> { address[0].subAdminArea!! }
@@ -122,16 +123,16 @@ class ActivityProfileHome : AppCompatActivity() {
         //init Gps
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
         //Initialize locationRequest
-        locationRequest = LocationRequest().apply {
-                // Sets the desired interval for active location updates. This interval is inexact.
-                interval =
-                    TimeUnit.SECONDS.toMillis(60)
-                // Sets the fastest rate for active location updates. This interval is exact, and your application will never receive updates more frequently than this value
-                fastestInterval = TimeUnit.SECONDS.toMillis(1)
-                // Sets the maximum time when batched location updates are delivered. Updates may be delivered sooner than this interval
-                maxWaitTime = TimeUnit.MINUTES.toMillis(1)
-                priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-            }
+        LocationRequest().apply {
+            // Sets the desired interval for active location updates. This interval is inexact.
+            interval =
+                TimeUnit.SECONDS.toMillis(60)
+            // Sets the fastest rate for active location updates. This interval is exact, and your application will never receive updates more frequently than this value
+            fastestInterval = TimeUnit.SECONDS.toMillis(1)
+            // Sets the maximum time when batched location updates are delivered. Updates may be delivered sooner than this interval
+            maxWaitTime = TimeUnit.MINUTES.toMillis(1)
+            priority = PRIORITY_HIGH_ACCURACY
+        }.also { locationRequest = it }
         //Initialize locationCallback.
         locationCallback = object : LocationCallback() {
                 override fun onLocationResult(locationResult : LocationResult) {
@@ -140,13 +141,13 @@ class ActivityProfileHome : AppCompatActivity() {
                         currentLocation = it
                         Info.lat = currentLocation !!.latitude
                         Info.long = currentLocation !!.longitude
-                        Log.d(TAG, "Info.lat = ${Info.lat}")
-                        Log.d(TAG, "Info.long = ${Info.long}")
+                        Log.d(tag, "Info.lat = ${Info.lat}")
+                        Log.d(tag, "Info.long = ${Info.long}")
                         // use latitude and longitude as per your need
                         Info.locationGroup = calculateLocationGroup()
                         Info.countryName = calculateLocationName()
-                        Log.d(TAG, "Info.locationGroup = ${Info.locationGroup}")
-                        Log.d(TAG, "Info.countryName = ${Info.countryName}")
+                        Log.d(tag, "Info.locationGroup = ${Info.locationGroup}")
+                        Log.d(tag, "Info.countryName = ${Info.countryName}")
                         stopLocationUpdates()
                     }
                 }
@@ -159,8 +160,8 @@ class ActivityProfileHome : AppCompatActivity() {
         Fun.startAnimationLoading(this@ActivityProfileHome,binding.headlineContainer,binding.bodyContainer,binding.footerContainer,binding.loadingBar,binding.loadingContainer, binding.title,binding.bodyText , binding.loadingBar, binding.loadingIcon, binding.tips)
         startLocationUpdates()}
 
-    fun startLocationUpdates() {
-        Log.d(TAG,"startLocationUpdates()")
+    private fun startLocationUpdates() {
+        Log.d(tag,"startLocationUpdates()")
         //Now that you initialized everything, you need to let the FusedLocationProviderClient know that you want to receive updates. So Subscribe to location changes.
         if (ActivityCompat.checkSelfPermission(
                 this,
@@ -182,7 +183,7 @@ class ActivityProfileHome : AppCompatActivity() {
         fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper())}
 
     fun stopLocationUpdates() {
-        Log.d(TAG,"stopLocationUpdates()")
+        Log.d(tag,"stopLocationUpdates()")
         val binding  = ActivityProfileHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //When the app no longer needs access to location information, it’s important to unsubscribe from location updates.
@@ -196,7 +197,7 @@ class ActivityProfileHome : AppCompatActivity() {
                     binding.headlineContainer.postDelayed({startActivity(Intent(this@ActivityProfileHome, ActivityProfileMenu::class.java));finish()}, 1600)}
             }
             else {
-                Log.d(TAG, "Failed to remove Location Callback.")
+                Log.d(tag, "Failed to remove Location Callback.")
             }
         }
     }

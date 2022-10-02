@@ -30,10 +30,10 @@ class ActivitySwipePrefHeight : AppCompatActivity() {
         //init seekbar
         if (Pref.minHeight != null ) {binding.seekBar.valueFrom = Pref.minHeight!!.toFloat()}
         if (Pref.maxHeight != null ) {binding.seekBar.valueTo = Pref.maxHeight!!.toFloat()}
-        binding.minValueMetric.text = ((binding.seekBar.values[0])/100).toString() + "m"//min
-        binding.minValue.text = "${floor((binding.seekBar.values[0].toFloat()) / 30.48f).toInt()}'${floor((((binding.seekBar.values[0].toFloat()) / 30.48f) - floor((binding.seekBar.values[0].toFloat()) / 30.48f).toInt().toFloat())*12).toInt()}\""
-        binding.maxValueMetric.text = ((binding.seekBar.values[1])/100).toString() + "m"//min
-        binding.maxValue.text = "${floor((binding.seekBar.values[1].toFloat()) / 30.48f).toInt()}'${floor((((binding.seekBar.values[1].toFloat()) / 30.48f) - floor((binding.seekBar.values[1].toFloat()) / 30.48f).toInt().toFloat())*12).toInt()}\""
+        (((binding.seekBar.values[0])/100).toString() + "m").also { binding.minValueMetric.text = it }//min
+        "${floor((binding.seekBar.values[0].toFloat()) / 30.48f).toInt()}'${floor((((binding.seekBar.values[0].toFloat()) / 30.48f) - floor((binding.seekBar.values[0].toFloat()) / 30.48f).toInt().toFloat())*12).toInt()}\"".also { binding.minValue.text = it }
+        (((binding.seekBar.values[1])/100).toString() + "m").also { binding.maxValueMetric.text = it }//min
+        "${floor((binding.seekBar.values[1].toFloat()) / 30.48f).toInt()}'${floor((((binding.seekBar.values[1].toFloat()) / 30.48f) - floor((binding.seekBar.values[1].toFloat()) / 30.48f).toInt().toFloat())*12).toInt()}\"".also { binding.maxValue.text = it }
         //init animation
         Fun.startAnimationQuestionSlider(this, binding.swipeIconContainer, binding.button, binding.valuesContainer, binding.seekBarContainer, binding.question, binding.headlineContainer, binding.bodyContainer, binding.footerContainer, binding.user, binding.percentage)
         //Fun.setWidgetAndProgress(Helper.profileWidget, Helper.profileProgress, binding.profileWidget, binding.profileWidgetText, binding.profileProgressBar)
@@ -46,10 +46,10 @@ class ActivitySwipePrefHeight : AppCompatActivity() {
             }})
         binding.seekBar.addOnChangeListener { _, _, _ ->
             // Responds to when slider's value is changed
-            binding.minValueMetric.text = ((binding.seekBar.values[0])/100).toString() + "m"//min
-            binding.minValue.text = "${floor((binding.seekBar.values[0].toFloat()) / 30.48f).toInt()}'${floor((((binding.seekBar.values[0].toFloat()) / 30.48f) - floor((binding.seekBar.values[0].toFloat()) / 30.48f).toInt().toFloat())*12).toInt()}\""
-            binding.maxValueMetric.text = ((binding.seekBar.values[1])/100).toString() + "m"//min
-            binding.maxValue.text = "${floor((binding.seekBar.values[1].toFloat()) / 30.48f).toInt()}'${floor((((binding.seekBar.values[1].toFloat()) / 30.48f) - floor((binding.seekBar.values[1].toFloat()) / 30.48f).toInt().toFloat())*12).toInt()}\""
+            (((binding.seekBar.values[0])/100).toString() + "m").also { binding.minValueMetric.text = it }//min
+            "${floor((binding.seekBar.values[0].toFloat()) / 30.48f).toInt()}'${floor((((binding.seekBar.values[0].toFloat()) / 30.48f) - floor((binding.seekBar.values[0].toFloat()) / 30.48f).toInt().toFloat())*12).toInt()}\"".also { binding.minValue.text = it }
+            (((binding.seekBar.values[1])/100).toString() + "m").also { binding.maxValueMetric.text = it }//min
+            "${floor((binding.seekBar.values[1].toFloat()) / 30.48f).toInt()}'${floor((((binding.seekBar.values[1].toFloat()) / 30.48f) - floor((binding.seekBar.values[1].toFloat()) / 30.48f).toInt().toFloat())*12).toInt()}\"".also { binding.maxValue.text = it }
             Pref.minHeight = if (((binding.seekBar.values[1]).toInt())-(binding.seekBar.values[0]).toInt() < 15) {((binding.seekBar.values[1]).toInt())-15} else {(binding.seekBar.values[0]).toInt()}
             Pref.maxHeight = ((binding.seekBar.values[1]).toInt())
             Fun.calculateSwipePreferencePercentageItem("height", binding.progressBar)

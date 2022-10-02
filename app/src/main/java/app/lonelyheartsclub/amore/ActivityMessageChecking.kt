@@ -40,9 +40,9 @@ class ActivityMessageChecking : AppCompatActivity() {
 
     }
 
-    private suspend fun getMessagesFromServer() : Boolean  {
+    private fun getMessagesFromServer() : Boolean  {
         var messages = false
-        val messageCheck = getSharedPreferences("messages", MODE_APPEND)
+        val messageCheck = getSharedPreferences("messages", MODE_PRIVATE)
         if (!messageCheck.all.isNullOrEmpty()){messages = true} else{val db = Firebase.firestore;db.collection(Info.uid + "m").get().addOnSuccessListener { result -> ;messages = true;for (document in result) {
                     //save in a file named uid
                     val messageUid = document.reference.id //get uid
@@ -60,12 +60,12 @@ class ActivityMessageChecking : AppCompatActivity() {
                     messageSaver.putString("x",document.getField<String>("x"))//get message 7 (field x)
                     messageSaver.putString("y",document.getField<String>("y"))//get message 8 (field y)
                     messageSaver.putString("z",document.getField<String>("z"))//get message 9 (field z)
-                    messageSaver.commit()
+                    messageSaver.apply()
                     //add the uid to messages file
                     val messageManagerSharedPreferences = getSharedPreferences("messages", MODE_PRIVATE)
                     val messageManager = messageManagerSharedPreferences.edit()
                     messageManager.putString(messageUid,messageUid)
-                    messageManager.commit()}}
+                    messageManager.apply()}}
         }
         return messages
     }

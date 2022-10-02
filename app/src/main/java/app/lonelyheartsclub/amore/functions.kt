@@ -5,9 +5,7 @@ package app.lonelyheartsclub.amore
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.graphics.Typeface
-import android.graphics.drawable.Icon
 import android.graphics.drawable.TransitionDrawable
 import android.icu.util.Calendar
 import android.os.Handler
@@ -16,8 +14,6 @@ import android.util.TypedValue
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
 import kotlin.math.roundToInt
 
 object Fun {
@@ -1091,13 +1087,12 @@ object Fun {
         val numberOfUsers : Int = ((Stat.users.toString().toFloat()/100.000F)*percentage).toInt() ;var percentageString = ((percentage * 10000.0f).roundToInt().toFloat() / 10000.0f).toString() ;val check = percentageString.contains("E");if (check) {percentageString = "0.001"}
         return "~${numberOfUsers}~${percentageString}%~"}
     //--- Grouping ---
-    fun calculateAge() : Int{
+    private fun calculateAge() : Int{
         return if (Info.yearOfBirth != null) {
             val currentYear : Int = Calendar.getInstance().get(Calendar.YEAR)
             currentYear - Info.yearOfBirth!!} else {81}}
-    fun calculateAgeGroup() : String {
-        val age = calculateAge()
-        when (age) {
+    private fun calculateAgeGroup() : String {
+        when (calculateAge()) {
             18, 19 -> {return "a"}
             20, 21 -> {return "b"}
             22, 23 -> {return "c"}
@@ -1135,8 +1130,8 @@ object Fun {
 
     }
     fun calculateLatLongGroup() {
-        //var lat : Double? = null//Double (53.3276953)
-        //var long : Double? = null//Double (-2.6933446)
+        var lat : Double? = null//Double (53.3276953)
+        var long : Double? = null//Double (-2.6933446)
         return
     }
 
@@ -1148,23 +1143,22 @@ object Fun {
 
     fun calculateSwipeGroupsFromLocationGroup() {
         if (Info.locationGroup == null) {calculateLocationGroup()}
-
         //Pref.locationGroups =
     }
     //--- Older Grouping ---
     fun calculateSwipeGroupsInCountry(): List<String?>{
-        var swipeGroups : MutableList<String> = arrayListOf()
+        val swipeGroups : MutableList<String> = arrayListOf()
         //EXAMPLE: "UK110053.200-2.6"
         //Get CountryCode
         //Info.country //should be CountryCode(CC)
-        //Get SexOrenataion
+        //Get SexOrientation
         //Info.sexCompatible // list of bytes Male Straight = 11, Male Gay = 12, Male Bisexual = 13, Male Anyone = 19, Female Straight = 21, Female Gay = 22, Female Bisexual = 23, Female Anyone = 29, Other Male = 31, Other Female = 32, Other Other = 33, Other Anyone = 39
         //Get LatGroup (4-9)
         val centralLatGroup = Info.gps!!.substring(4, 9).toDouble()//53.2
         //Get LongGroup (10-15)
         val centralLongGroup = Info.gps!!.substring(10, 15).toDouble() //-2.6
         //In Country
-        //1 (all SexOrenataion options)
+        //1 (all SexOrientation options)
         for (i in Info.sexCompatible!!) {swipeGroups.add(Info.country!! + i + centralLatGroup + centralLongGroup)}
         //long
         //up 1
@@ -1235,7 +1229,7 @@ object Fun {
         return swipeGroups
     }
     fun calculateNeighbouringCountries(CountryCode : String): List<String>? {
-        val countryCodeToNeighbouringCountrys = mapOf(
+        val countryCodeToNeighbouringContrys = mapOf(
                 "AC" to listOf("SH"),
                 "AD" to listOf(
                         "FR",
@@ -2688,7 +2682,7 @@ object Fun {
                         "US-CO",
                         "US-ID"),
         )
-        return countryCodeToNeighbouringCountrys[CountryCode]
+        return countryCodeToNeighbouringContrys[CountryCode]
     }
 
     //=============== SET =============================
@@ -3250,9 +3244,94 @@ object Fun {
         var percentageString = ((percentage * 10000.0f).roundToInt().toFloat() / 10000.0f).toString()
         val check = percentageString.contains("E")
         if (check) {percentageString = "0.001"}
-        progressText.text = "~" + numberOfUsers + "~" + percentageString + "%~"
+        progressText.text = "~$numberOfUsers~$percentageString%~"
     }
-    fun setFocusProfileMenu(context: Context, photoBack : ImageView, photoIcon : ImageView, photoText : TextView, easyBack : ImageView, easyIcon : ImageView, easyText : TextView, bioBack : ImageView, bioIcon : ImageView, bioText : TextView, childrenBack : ImageView, childrenIcon : ImageView, childrenText : TextView, travelBack : ImageView, travelIcon : ImageView, travelText : TextView, heightBack : ImageView, heightIcon : ImageView, heightText : TextView, petBack : ImageView, petIcon : ImageView, petText : TextView, musicBack : ImageView, musicIcon : ImageView, musicText : TextView, foodBack : ImageView, foodIcon : ImageView, foodText : TextView, politicalBack : ImageView, politicalIcon : ImageView, politicalText : TextView, educationBack : ImageView, educationIcon : ImageView, educationText : TextView, languageBack : ImageView, languageIcon : ImageView, languageText : TextView, employmentBack : ImageView, employmentIcon : ImageView, employmentText : TextView, incomeBack : ImageView, incomeIcon : ImageView, incomeText : TextView, viewsBack : ImageView, viewsIcon : ImageView, viewsText : TextView, drinkBack : ImageView, drinkIcon : ImageView, drinkText : TextView, smokeBack : ImageView, smokeIcon : ImageView, smokeText : TextView, drugsBack : ImageView, drugsIcon : ImageView, drugsText : TextView, raceBack : ImageView, raceIcon : ImageView, raceText : TextView, religionBack : ImageView, religionIcon : ImageView, religionText : TextView, relationshipBack : ImageView, relationshipIcon : ImageView, relationshipText : TextView, photoToDo : TextView, easyToDo : TextView, bioToDo : TextView, childrenToDo : TextView, travelToDo : TextView, heightToDo : TextView, petToDo : TextView, musicToDo : TextView, foodToDo : TextView, politicalToDo : TextView, educationToDo : TextView, languageToDo : TextView, employmentToDo : TextView, incomeToDo : TextView, viewsToDo : TextView, drinkToDo : TextView, drugsToDo : TextView, smokeToDo : TextView, raceToDo : TextView, religionToDo : TextView,){
+    fun setFocusProfileMenu(
+        context: Context,
+        photoBack: ImageView,
+        photoIcon: ImageView,
+        photoText: TextView,
+        easyBack: ImageView,
+        easyIcon: ImageView,
+        easyText: TextView,
+        bioBack: ImageView,
+        bioIcon: ImageView,
+        bioText: TextView,
+        childrenBack: ImageView,
+        childrenIcon: ImageView,
+        childrenText: TextView,
+        travelBack: ImageView,
+        travelIcon: ImageView,
+        travelText: TextView,
+        heightBack: ImageView,
+        heightIcon: ImageView,
+        heightText: TextView,
+        petBack: ImageView,
+        petIcon: ImageView,
+        petText: TextView,
+        musicBack: ImageView,
+        musicIcon: ImageView,
+        musicText: TextView,
+        foodBack: ImageView,
+        foodIcon: ImageView,
+        foodText: TextView,
+        politicalBack: ImageView,
+        politicalIcon: ImageView,
+        politicalText: TextView,
+        educationBack: ImageView,
+        educationIcon: ImageView,
+        educationText: TextView,
+        languageBack: ImageView,
+        languageIcon: ImageView,
+        languageText: TextView,
+        employmentBack: ImageView,
+        employmentIcon: ImageView,
+        employmentText: TextView,
+        incomeBack: ImageView,
+        incomeIcon: ImageView,
+        incomeText: TextView,
+        viewsBack: ImageView,
+        viewsIcon: ImageView,
+        viewsText: TextView,
+        drinkBack: ImageView,
+        drinkIcon: ImageView,
+        drinkText: TextView,
+        smokeBack: ImageView,
+        smokeIcon: ImageView,
+        smokeText: TextView,
+        drugsBack: ImageView,
+        drugsIcon: ImageView,
+        drugsText: TextView,
+        raceBack: ImageView,
+        raceIcon: ImageView,
+        raceText: TextView,
+        religionBack: ImageView,
+        religionIcon: ImageView,
+        religionText: TextView,
+        relationshipBack: ImageView,
+        relationshipIcon: ImageView,
+        relationshipText: TextView,
+        photoToDo: TextView,
+        easyToDo: TextView,
+        bioToDo: TextView,
+        childrenToDo: TextView,
+        travelToDo: TextView,
+        heightToDo: TextView,
+        petToDo: TextView,
+        musicToDo: TextView,
+        foodToDo: TextView,
+        politicalToDo: TextView,
+        educationToDo: TextView,
+        languageToDo: TextView,
+        employmentToDo: TextView,
+        incomeToDo: TextView,
+        viewsToDo: TextView,
+        drinkToDo: TextView,
+        drugsToDo: TextView,
+        smokeToDo: TextView,
+        raceToDo: TextView,
+        religionToDo: TextView,
+    ){
         //get focus colour
         val colorGetter = TypedValue();context.theme.resolveAttribute(com.google.android.material.R.attr.colorOnBackground, colorGetter, true);val colorFocused = colorGetter.data
         //set focus
@@ -3362,6 +3441,7 @@ object Fun {
         else if (Info.food == null) {foodToDo.visibility = View.VISIBLE}
         else if (Info.views == null) {viewsToDo.visibility = View.VISIBLE}
     }
+    @SuppressLint("SetTextI18n")
     fun setFocusSwipePreferencesMenu(context : Context, incomeBack : ImageView, incomeIcon : ImageView, incomeText : TextView, heightBack : ImageView, heightIcon : ImageView, heightText : TextView, ageBack : ImageView, ageIcon : ImageView, ageText : TextView, bmiBack : ImageView, bmiIcon : ImageView, bmiText : TextView, easyBack : ImageView, easyIcon : ImageView, easyText : TextView, travelBack : ImageView, travelIcon : ImageView, travelText : TextView, drugsBack : ImageView, drugsIcon : ImageView, drugsText : TextView, drinkBack : ImageView, drinkIcon : ImageView, drinkText : TextView, educationBack : ImageView, educationIcon : ImageView, educationText : TextView, smokeBack : ImageView, smokeIcon : ImageView, smokeText : TextView, foodBack : ImageView, foodIcon : ImageView, foodText : TextView, relationshipBack : ImageView, relationshipIcon : ImageView, relationshipText : TextView, childrenBack : ImageView, childrenIcon : ImageView, childrenText : TextView, petBack : ImageView, petIcon : ImageView, petText : TextView, politicalBack : ImageView, politicalIcon : ImageView, politicalText : TextView, religionBack : ImageView, religionIcon : ImageView, religionText : TextView, employmentBack : ImageView, employmentIcon : ImageView, employmentText : TextView, languageBack : ImageView, languageIcon : ImageView, languageText : TextView, raceBack : ImageView, raceIcon : ImageView, raceText : TextView, viewsBack : ImageView, viewsIcon : ImageView, viewsText : TextView, stats : TextView, repBack : ImageView, repIcon : ImageView, repText : TextView){
         //get focus colour
         val colorGetter = TypedValue();context.theme.resolveAttribute(com.google.android.material.R.attr.colorOnBackground, colorGetter, true);val colorFocused = colorGetter.data
@@ -3972,7 +4052,7 @@ object Fun {
         }
         val numberOfUsers : Int = ((Stat.users.toString().toFloat()/100.000F)*percentage).toInt()
         percentage = (percentage * 10000.0f).roundToInt().toFloat() / 10000.0f
-        stats.text = "~" + numberOfUsers + "~ ~" + percentage + "%~"
+        stats.text = "~$numberOfUsers~ ~$percentage%~"
 
     }
     //=============== SAVES =============================
@@ -4134,10 +4214,6 @@ object Fun {
         footerTransition.startTransition(5000)
     }
     fun startAnimationSwipePreferencesMenu(context: Context, headline: TextView, home: RelativeLayout, profile: RelativeLayout, match: RelativeLayout, message: RelativeLayout, body: ScrollView, headerBackground: RelativeLayout,bodyBackground: RelativeLayout,footerBackground: LinearLayout, row_0 : RelativeLayout){
-        val startAnimation = AnimationUtils.loadAnimation(context, R.anim.start_six_question_question)
-        val startAnimation2 = AnimationUtils.loadAnimation(context, R.anim.start_six_question_answer_one)
-        val startAnimation3 = AnimationUtils.loadAnimation(context, R.anim.start_six_question_answer_two)
-        val startAnimation4 = AnimationUtils.loadAnimation(context, R.anim.start_six_question_answer_three)
         val startAnimation5 = AnimationUtils.loadAnimation(context, R.anim.start_six_question_answer_four)
         val startAnimation6 = AnimationUtils.loadAnimation(context, R.anim.start_six_question_answer_five)
         val startAnimation7 = AnimationUtils.loadAnimation(context, R.anim.start_six_question_answer_six)

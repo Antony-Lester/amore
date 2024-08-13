@@ -1,0 +1,113 @@
+
+app launch-																																							------------RECORD SWIPE RESULTS  ---------------------CHECK FOR MESSAGE'S---------n------					
+	(launch)	(loading anamation)(statement style)																																					               /\								|			|
+	check for local files(for uid) y->check local files for bio------------------------------------------------------------------------------------																							|								y			|
+		n			n												|																						swipe no one at the moment (loading anamation)(statement style)			|			|
+		|		check local files for name-----N------------>	signup capture name						|																						               /\								messages			|
+		|			y					v							|																							|<----------------------------------------------|					|
+		|		check local files for email-----N------------>signup capture email						|																						CHECK REMAINING COUNTRYS--------------->swipe screen       						|
+		|			y					v							|																							n											|
+		|		check local files for dob-------N----------->signup capture dob							|																						               /\											|
+		|			y					v							|																	|(TELL US WHAT YOU THINK)				|<----------------------------------------------|					|
+		|		check local files for faceid(picture check)->n signup capture picture & face id,						|																	|					CHECK FAR COUNTRYS--------------->swipe screen							|
+		|			y					v							|																	|(SAFEGAURDING ADVICE)															|
+		|			------------------------------->Profile capture bio(upload user data to server)---------------------------|																	|					               /\											|
+		|															|																	|(STATS..TOTAL USERS..ECT)				|<----------------------------------------------|					|
+		|															|						CHECK FOR MESSAGE'S									|					CHECK OUTER COUNTRYS--------------->swipe screen							|
+		|															|						               /\										|App settings -themes/text					n											|
+		|															|							|										|					               /\											|
+		|															|							(update)										|						|<----------------------------------------------|					|
+		|															|							|										|					CHECK LOCAL COUNTRYS--------------->swipe screen							|
+		v															|							n										|						n											|
+	request uid (have uid?)->check for server files(user.Info&user.Prefs)->Download to local files->check for local files(for uid) 						|			(if no new match need to message left)									|					               /\											|
+		n															|							|										|						|<----------------------------------------------|					|
+		|															|							|										|					CHECK COUNTRY--------------->swipe screen							|
+		v															|	(update message local files)--(message)--message new match page--(unmatch)--(update message local files)					|						n											|
+	signupget phone number  <-------													|			|			               /\				|						|					               /\											|
+		|		|													|			------------------------------->|<------------------------------						|						|<----------------------------------------------|					|
+		V		|													|							|										|					CHECK FAR LOCAL ZONE--------------->swipe screen							|
+	signup-verify phone number -delay 60 sec's													|							|										|						n											|
+		|															|					           (if no need to messages left)									|					               /\											|
+		V															|							|										|						|<----------------------------------------------|					|
+	save uid & phone number to local files													|							n										|					CHECK OUTER LOCAL ZONE--------------->swipe screen						|
+		|															|							|										|						n											|
+	signup capture name											                                                |	(update message local files)--(message)--message need to page--(unmatch)--(update message  local files)						|					               /\											|
+	signup capture email												                  	|			|			               /\ 			              |							|						|<----------------------------------------------|					|
+	signup capture dob															|			----------------------------- ->|<------------------------------  						|					CHECK LOCAL ZONE -y--------------->swipe screen							|
+	signup capture gender																|							|  										|						y											|
+	signup capture oreantation																|							|  										|					               /\											|
+	profile capture home(location-with a wait)												|			                	(messages yes messages page)(statement style)								|						|											|
+		|															|							|  										|					CHECK FOR SWIPE PREF DATA--->swipe what are your prefs page------------------------------->swipe menu page(list menu style)------ >|
+	profile capture face picture														|							y  						(INITAL LOAD ZONE)		|						|<---------------------------------------------------------------------  <|		|
+		|															V		(loading anamation)(statement style)		|  					(loading anamation)(statement style)		|			               			|											v					
+	Profile capture bio(upload user data to server)--------------------------------------------------------------------------------->CHECK SUBSCRIPTION---y------>(messages checking for page)--->CHECK FOR MESSAGE'S--------n------------>(messages no messages page)------------------>home page(summery)------------------------------swipe page									         REFRESH STATS FROM SERVER			
+																	|    /\				|													|	|																|
+																	|     |				|									(INITAL LOAD ZONE)	               \/             /\																v
+																	|     |				|													|	|														(aprox number of users and %) Clear Prefs Button
+																	n    y				----------------------------------------------------------<------------------------------------------<----------------------------------------------------------------------------------------------------				swipeprefs rating-(slider style page)
+																	|     |																																	swipeprefs  age(slider style page)
+																	|     |																																		|
+																	v    |																																	swipeprefs  height(slider style page)
+																(subscription page)(*NEEDS EXPANSHION*)																															|
+																																																		swipeprefs  build(tick box style page)
+																																																			|
+profile page(profile menu)																																																swipeprefs  language-(list tick box style page)
+|																																																			|
+profile capture bio(text box style)----UPLOAD USER.INFO TO SERVER-->CHECK SUBSCRIPTION																																									swipeprefs  relationship-(tick box style page)
+|																																																			|
+profile capture height(slider style) --->Profile capture weight(bmi)(slider style)																																											swipeprefs  easy-(tick box style page)
+|																																																			|
+profile capiture children(question style)																																															swipeprefs  drugs-(tick box style page)
+																																																			|
+|																																																		swipeprefs  smoke-(tick box style page)
+profile caprure drink(question style)																																																|
+|																																																		swipeprefs  drink-(tick box style page)
+profile capture drugs(question style)																																																|
+|																																																		swipeprefs  children-(tick box style page)
+profile capture education(question style)																																															|
+|																																																		swipeprefs  pets-(tick box style page)
+profile capture employment(question style)																																															|
+|																																																		swipeprefs  political-(tick box style page)
+profile capture food(question style)																																																|
+|																																																		swipeprefs  religion-(tick box style page)
+profile capture holiday																																																	|
+|																																																		swipeprefs  employment-(tick box style page)
+profile capture home(location-with a wait)(CALCULATE SWIPE SEARCH CATAGORYS & SAVE IN PREF) -->*if bio null*-->profile capture face picture																																					|
+|																																																		swipeprefs  education-(tick box style page)
+profile capture easy(question style)																																																|
+|										(single question style)																																						swipeprefs  travel->(tick box style page)
+profile question first language -n->profile select language --> profile comfirm language --> profile additional language --> n																																							|
+|	|(single question style)	|						|          |																																								swipeprefs  income-(slider style page)
+|	|			------------------------<----------y------------           |																																									|
+|	-----------------y------------------------------>-----------------------------																																								swipeprefs  food-(tick box style page)
+|																																																			|
+profile capture music(question style)						                -----<----------profile face picture retake reason(loading anamation)																																	swipeprefs rating-(slider style page)
+|										|						|
+profile capture income(slider style)							|						|
+|										v						n
+profile capture pets(question style)							|						|
+|										|						|
+profile photo(single question style) -->profile face picture smile(loading anamation)------->CAPTURE PICTURE----------------> CHECK FACE PICTURE 	---profile do you like the picture(simple question)---y--SAVE TO SERVER&INTERNAL MEMORY-------------*if bio null*--y-->profile capture bio(text box style)												
+|		|																								
+|		-------->profile body picture pick a pose(list question style)--------> CAPTURE  PICTURE----------------> CHECK BODY PICTURE  ---profile do you like the picture(simple question)---y--SAVE TO SERVER&INTERNAL MEMORY----
+|					               /\			               /\						|					|							|		|
+|						|				|						|					|							|		|
+|						|				|						n					n							|		n
+|						y				n						|					|							|		|
+|						|				|						|					|							|----------------|------picture saved(loading anamation)------->profile page
+profile capture religion(question style)	profile body picture pick a different pose(simple question)<---------profile body picture retake reason(loading anamation)			|
+|									|												v
+profile capture political(question style)						|												|
+|								               /\												|
+profile capture relationship(question style)					|												|
+|									|----------------------------------<------------------------------------------------------------|
+profile capture smoke(question style)
+|
+profile capture travel(question style)
+|
+profile capture views(multi answer question style)
+|
+profile view profile(swipe style)
+
+
+

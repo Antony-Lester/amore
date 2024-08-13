@@ -1,0 +1,10 @@
+Microsoft: Email: lonely_hearts_app@hotmail.com Password: E%6@WnD^wXuC Date Of Birth: 6th June 1944, backup email address: jl137369b@gmail.com
+
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\Tony\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: 5D:E7:A2:45:0A:C9:26:E2:1D:0E:25:A0:5B:61:16:23
+SHA1: 36:76:0D:FB:A9:06:2D:C4:BB:74:1C:9F:4A:EF:09:28:97:2B:61:16
+SHA-256: 0C:71:FA:EF:1E:6D:C9:2E:2A:28:C0:17:D6:E4:61:C8:90:81:BE:FF:18:A7:BD:B9:EB:06:DF:9E:11:02:E6:40
+Valid until: Tuesday, 2 January 2052

@@ -30,7 +30,7 @@ class ActivityLaunch : AppCompatActivity() {
         GlobalScope.launch{
             doLoadingWork()
             Fun.finishAnimationLoading(this@ActivityLaunch,binding.headlineContainer,binding.bodyContainer,binding.footerContainer,binding.loadingBar,binding.loadingContainer, binding.title,binding.bodyText , binding.loadingBar, binding.loadingIcon, binding.tips)
-            binding.headlineContainer.postDelayed({startActivity(Intent(this@ActivityLaunch, ActivityProfileHome::class.java));finish()}, 1600) }
+            binding.headlineContainer.postDelayed({startActivity(Intent(this@ActivityLaunch, ActivityProfileMenu::class.java));finish()}, 1600) }
     }
 
     suspend fun doLoadingWork() {
